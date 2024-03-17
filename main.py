@@ -43,7 +43,10 @@ if __name__ == "__main__":
         if not pyuac.isUserAdmin():
             pyuac.runAsAdmin()
         else:
-            win.change_mac(interface , new_mac)
-
+            try:
+                win.change_mac(interface , new_mac)
+            except Exception as e:
+                print(e)
+                input()
     else:
         print("[-] Unsupported platform")
